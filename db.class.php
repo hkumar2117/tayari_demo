@@ -7,9 +7,9 @@
 
 class db {
     var $host="localhost";
-    var $username="username";   
-    Var $password="password";
-    var $database="databasename";
+    var $username="root";   
+    Var $password="root";
+    var $database="tayari";
     var $myconn;
 
     function connectToDatabase(){
@@ -18,7 +18,7 @@ class db {
             die ("Cannot connect to the database");
         } else{
             $this->myconn = $conn;
-            echo "Connection established";
+           // echo "Connection established"; Will forward to some log file
         }
         return $this->myconn;
     }
@@ -26,9 +26,9 @@ class db {
     function selectDatabase() {
         mysql_select_db($this->database); 
         if(mysql_error()){
-            echo "Cannot find the database ".$this->database;
+          //  echo "Cannot find the database ".$this->database;
         }
-         echo "Database selected..";       
+        // echo "Database selected..";       
     }
     function closeConnection() {
         mysql_close($this->myconn);
